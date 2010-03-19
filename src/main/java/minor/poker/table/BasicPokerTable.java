@@ -1,4 +1,4 @@
-/**
+/*
 Copyright 2010 David Minor
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +21,7 @@ package minor.poker.table;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BasicPokerTable extends AbstractObservablePokerTable implements PokerTable {
+public class BasicPokerTable extends ObservablePokerTable implements PokerTable {
   private int dealer;
   private ArrayList<PlayerInfo> players;
   private Hand currentHand;

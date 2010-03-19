@@ -10,5 +10,8 @@ package minor.poker.table;
  * @author David
  */
 public interface PlayerInfo {
-
+    Player getPlayer();
+    long getChips();
+    long getPendingChips();
+    PlayerStatus getStatus();
 }

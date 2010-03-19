@@ -4,7 +4,7 @@
   <groupId>com.davidminor</groupId>
   <artifactId>java-poker-table</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.5-SNAPSHOT</version>
   <name>java-poker-table</name>
   <url>http://maven.apache.org</url>
     <build>
@@ -44,6 +44,8 @@
   </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.license>apache20</project.license>
     </properties>
 </project>
+
 
