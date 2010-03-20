@@ -21,6 +21,6 @@ package minor.poker.table;
  *
  * @author dave
  */
-public interface Action {
-
+public enum HandStatus {
+    FOLDED, ALL_IN, PLAYING, SAT_OUT
 }

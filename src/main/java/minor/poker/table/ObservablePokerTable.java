@@ -16,8 +16,6 @@ limitations under the License.
 
 package minor.poker.table;
 
-import java.util.Observable;
-
 /**
  *
  * @author dave

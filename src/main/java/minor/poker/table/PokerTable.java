@@ -13,24 +13,31 @@ import java.util.List;
  */
 public interface PokerTable {
 
+    /**
+     * Returns the current seat that the dealer button is at.
+     *
+     * @return
+     */
     int getDealer();
 
-    Hand getHand();
+    Hand getCurrentHand();
 
     int getNumberOfSeats();
 
-    PlayerInfo getPlayer(int seat);
+    PlayerTableInfo getPlayerInfo(int seat);
 
-    List<PlayerInfo> getPlayers();
+    PlayerTableInfo getPlayerInfo(Player player);
+    
+    List<PlayerTableInfo> getPlayerInfoList();
 
     /**
      * Return the seat of a particular player. Returns -1
      * if not seated.
      */
-    int getSeat(PlayerInfo player);
+    int getSeat(Player player);
 
     boolean isOccupied(int seat);
 
-    boolean isSeated(PlayerInfo player);
+    boolean isSeated(Player player);
 
 }

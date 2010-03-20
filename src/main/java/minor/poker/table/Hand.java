@@ -6,6 +6,7 @@
 package minor.poker.table;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -14,4 +15,6 @@ import java.util.List;
 public interface Hand {
     List<Action> getActions();
     Pot getPot();
+    Map<Player,PlayerHandInfo> getPlayerInfoMap();
+    PlayerHandInfo getPlayerInfo(Player player);
 }

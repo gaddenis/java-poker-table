@@ -21,6 +21,6 @@ package minor.poker.table;
  *
  * @author dave
  */
-public interface Action {
+public interface PlayerHandInfo {
 
 }

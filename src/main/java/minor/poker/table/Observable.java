@@ -21,6 +21,11 @@ package minor.poker.table;
  *
  * @author dave
  */
-public interface Action {
+public class Observable extends java.util.Observable {
+
+  public void doNotify() {
+    setChanged();
+    notifyObservers();
+  }
 
 }
