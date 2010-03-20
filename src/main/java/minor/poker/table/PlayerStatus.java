@@ -10,5 +10,7 @@ package minor.poker.table;
  * @author dave
  */
 public enum PlayerStatus {
-
+    SITTING_OUT,
+    WAITING_FOR_BLIND,
+    PLAYING
 }

@@ -5,13 +5,14 @@
 
 package minor.poker.table;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author David
  */
-public interface Hand {
-    List<Action> getActions();
-    Pot getPot();
+public interface Pot {
+    Map<Player,Long> getContributions();
+    long getTotal();
+    Pot getNextPot();
 }

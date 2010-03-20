@@ -10,5 +10,6 @@ package minor.poker.table;
  * @author dave
  */
 public interface Player {
-
+    String getName();
+    String getSignatory();
 }

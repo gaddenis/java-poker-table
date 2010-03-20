@@ -5,13 +5,10 @@
 
 package minor.poker.table;
 
-import java.util.List;
-
 /**
  *
  * @author David
  */
-public interface Hand {
-    List<Action> getActions();
-    Pot getPot();
+public interface Action {
+
 }
