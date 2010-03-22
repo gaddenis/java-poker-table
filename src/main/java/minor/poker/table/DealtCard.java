@@ -17,13 +17,12 @@
 
 package minor.poker.table;
 
-import java.util.List;
-
+import minor.cards.Card;
 /**
  *
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public interface DealtCard {
+  Card getCard();
+  Visibility getVisibility();
 }

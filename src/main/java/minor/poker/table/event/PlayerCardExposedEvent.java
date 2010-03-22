@@ -15,15 +15,19 @@
  *  under the License.
  */
 
-package minor.poker.table;
+package minor.poker.table.event;
 
-import java.util.List;
+import minor.poker.table.DealtCard;
+import minor.poker.table.Player;
 
 /**
  *
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public class PlayerCardExposedEvent extends PlayerCardEvent {
+
+  public PlayerCardExposedEvent(long time, Player player, DealtCard card) {
+    super(time, player, card);
+  }
+  
 }

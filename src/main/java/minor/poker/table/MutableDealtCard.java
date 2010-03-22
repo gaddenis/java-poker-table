@@ -17,10 +17,34 @@
 
 package minor.poker.table;
 
+import minor.cards.Card;
+
 /**
  *
  * @author dave
  */
-public interface Action {
+public class MutableDealtCard extends ObservableDealtCard {
+  private Card card;
+  private Visibility visibility;
+
+  public MutableDealtCard(Card card, Visibility visibility) {
+    this.card = card;
+    this.visibility = visibility;
+  }
+
+  @Override
+  public Card getCard() {
+    return card;
+  }
+
+  @Override
+  public Visibility getVisibility() {
+    return visibility;
+  }
+
+  public void setVisibility(Visibility visibility) {
+    this.visibility = visibility;
+    doNotify();
+  }
 
 }

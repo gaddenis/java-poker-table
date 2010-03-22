@@ -15,15 +15,26 @@
  *  under the License.
  */
 
-package minor.poker.table;
+package minor.poker.table.event;
 
-import java.util.List;
+import minor.poker.table.Player;
 
 /**
  *
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public class PlayerRaiseEvent extends PlayerBetEvent {
+
+  /**
+   * Bet should be the total amount the player is contributing
+   * to the pot on this round.
+   * 
+   * @param time
+   * @param player
+   * @param bet
+   */
+  public PlayerRaiseEvent(long time, Player player, long bet) {
+    super(time, player, bet);
+  }
+
 }

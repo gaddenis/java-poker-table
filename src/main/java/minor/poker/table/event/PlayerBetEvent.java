@@ -15,15 +15,31 @@
  *  under the License.
  */
 
-package minor.poker.table;
+package minor.poker.table.event;
 
-import java.util.List;
+import minor.poker.table.Player;
 
 /**
- *
+ * Abstract parent of PlayerCallEvent and PlayerRaiseEvent. Check
+ * and bet are just special cases of those two (use call with 0
+ * for a check).
+ * 
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public abstract class PlayerBetEvent extends PlayerEvent {
+
+  private long bet;
+  
+  public PlayerBetEvent(long time, Player player, long bet) {
+    super(time, player);
+    this.bet = bet;
+  }
+
+  /**
+   * @return the bet
+   */
+  public long getBet() {
+    return bet;
+  }
+
 }

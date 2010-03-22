@@ -17,13 +17,11 @@
 
 package minor.poker.table;
 
-import java.util.List;
-
 /**
  *
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public abstract class ObservablePlayerTableInfo extends Observable
+        implements PlayerTableInfo {
+
 }

@@ -15,15 +15,19 @@
  *  under the License.
  */
 
-package minor.poker.table;
+package minor.poker.table.event;
 
-import java.util.List;
+import minor.poker.table.Player;
 
 /**
- *
+ * Use call with 0 for a check.
+ * 
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public class PlayerCallEvent extends PlayerBetEvent {
+
+  public PlayerCallEvent(long time, Player player, long callAmount) {
+    super(time, player, callAmount);
+  }
+
 }

@@ -13,7 +13,7 @@ import java.util.Map;
  * @author David
  */
 public interface Hand {
-    List<Action> getActions();
+    List<Event> getEvents();
     Pot getPot();
     Map<Player,PlayerHandInfo> getPlayerInfoMap();
     PlayerHandInfo getPlayerInfo(Player player);

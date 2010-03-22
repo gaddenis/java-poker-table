@@ -17,13 +17,10 @@
 
 package minor.poker.table;
 
-import java.util.List;
-
 /**
  *
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public enum Visibility {
+  PRIVATE, PUBLIC, COMMUNITY;
 }

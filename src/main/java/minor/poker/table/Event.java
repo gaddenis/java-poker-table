@@ -17,13 +17,18 @@
 
 package minor.poker.table;
 
-import java.util.List;
-
 /**
  *
  * @author dave
  */
-public interface PlayerHandInfo {
-  HandStatus getHandStatus();
-  List<DealtCard> getPlayerCards();
+public abstract class Event {
+  private long time;
+
+  public Event(long time) {
+    this.time = time;
+  }
+
+  public long getTime() {
+    return time;
+  }
 }

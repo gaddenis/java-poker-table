@@ -40,36 +40,61 @@ public class MutablePot extends ObservablePot {
     this.sidePot = sidePot;
   }
 
+  /**
+   * Add token contribution to player's current contribution. Updates
+   * the total tokens.
+   *
+   * @param player
+   * @param contribution
+   */
   public void addContribution(Player player, long contribution) {
     if (contribution == 0)
       return;
     long current = potContributions.get(player);
-    potContributions.put(player, contribution + current);
+    if (contribution + current <= 0) {
+      potContributions.remove(player);
+    } else {
+      potContributions.put(player, contribution + current);
+    }
     total += contribution;
     doNotify();
   }
 
+  /**
+   * Remove the token amount from the player's total token
+   * contribution. Will remove player from contribution map
+   * if token count is <= 0.
+   * 
+   * @param player
+   * @param contribution
+   */
   public void removeContribution(Player player, long contribution) {
     if (contribution == 0)
       return;
     addContribution(player, -contribution);
-    if (potContributions.get(player) == 0) {
-      potContributions.remove(player);
-    }
-    doNotify();
   }
 
   /**
-   * Creates side pots based on contributions to this pot. Players
-   * with more contributions than others will remain in the main pot
-   * (which is returned). Returns true if any side pots were created.
+   * Creates side pots based on contributions to this pot. Call
+   * after betting is complete for the current round. Players
+   * with more contributions than others will remain in the main pot.
+   * Returns true if any side pots were created.
    *
    * @return true if side pot(s) created
    */
   public boolean createSidePots() {
+    if (createSidePotsWithoutNotify()) {
+      doNotify();
+      return true;
+    }
+    return false;
+  }
+
+  private boolean createSidePotsWithoutNotify() {
     if (potContributions.size() == 0)
       return false;
 
+    //look for the smallest contribution
     long min = Long.MAX_VALUE;
     long count = 0;
     for(long contrib : potContributions.values()) {
@@ -90,6 +115,7 @@ public class MutablePot extends ObservablePot {
     this.sidePot = newSidePot;
 
     //add everyone's contribution to the new side pot
+    //use a copy of key set because removeContribution may remove key
     for(Player player : new ArrayList<Player>(potContributions.keySet())) {
       //add the lowest contribution to the side pot and remove from this pot
       newSidePot.addContribution(player, min);
@@ -97,8 +123,8 @@ public class MutablePot extends ObservablePot {
     }
 
     //recursively create additional side pots
-    createSidePots();
-
+    createSidePotsWithoutNotify();
+    
     return true;
   }
 
